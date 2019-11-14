@@ -13,6 +13,10 @@ import java.math.BigDecimal;
 public class AccountService{
     Integer accountNumberSequence = 1;
 
+    public Account get(Integer userId) {
+        return AccountStorage.get(userId);
+    }
+
     public Account create(AccountType accountType, BigDecimal initialAmount) throws InitialValueException {
         Account account;
         if(accountType == AccountType.CHECKING) {

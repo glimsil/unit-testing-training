@@ -29,6 +29,10 @@ public class UserStorage {
         return false;
     }
 
+    public static Map<Integer, User> getStorage() {
+        return storage;
+    }
+
     private static Integer nextId() {
         return id++;
     }

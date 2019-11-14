@@ -10,9 +10,15 @@ import com.github.diegopacheco.xunit.testing.bank.model.User;
 import com.github.diegopacheco.xunit.testing.bank.type.AccountType;
 
 import java.math.BigDecimal;
+import java.util.Collection;
+import java.util.List;
 
 public class UserService {
     AccountService accountService = new AccountService();
+
+    public User get(Integer userId) {
+        return UserStorage.get(userId);
+    }
 
     public User create(String name, String email) {
         User user = new User(name, email);
@@ -32,5 +38,9 @@ public class UserService {
         }
         UserStorage.save(user);
         return account;
+    }
+
+    public Collection<User> listUsers () {
+        return UserStorage.getStorage().values();
     }
 }
